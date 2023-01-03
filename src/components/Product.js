@@ -1,7 +1,18 @@
-import React, {useState} from 'react';
-// import data from "./models/data.json";
+import React from 'react';
+import "./styles/App.css"
+import musicdata from "./models/data.json";
 import PropTypes from "prop-types";
 
+// map works however moving it from app.js to product.js resultd in it no longer working. it cant locate files in this component 
+export const Product = () => {
+    return (
+        <>
+        <div className="product-container">
+        
+           </div>
+        </>
+    );
+};
     
 
 // slides
@@ -19,15 +30,7 @@ import PropTypes from "prop-types";
 //         <h2 trackName={trackName}>{trackName}</h2>
 //     </div>
 //  </div>
-export function Track(props) {
-return (
-    <div>
-    <h3>{trackName}</h3>
-    <h3>{artistName}</h3>
-    <h3>{trackPrice}</h3>
-    </div>
-);
-}
+
 
 // * <div className="track">
 //     <img src={artworkUrl100} alt={trackName}/>
