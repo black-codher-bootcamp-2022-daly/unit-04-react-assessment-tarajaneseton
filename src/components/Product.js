@@ -1,72 +1,81 @@
 import React from 'react';
-import "./styles/App.css"
-import musicdata from "./models/data.json";
+// import "./styles/App.css"
 import PropTypes from "prop-types";
 
-// map works however moving it from app.js to product.js resultd in it no longer working. it cant locate files in this component 
-export const Product = () => {
+//Each object in the JSON file should be rendered by your <Product/> component.
+
+// Each product should have a button to Add to Basket. When clicked the item should be removed from <ProductList/> and added to your <Basket/> component.
+// Expected props for the <Product/> component are listed below:
+
+// Props
+// Example expected props. Please note this is not an exhaustive list, but the minimum props required for assessment.
+
+// <Product
+//     kind={kind}
+//     id={trackId}
+//     name={trackName}
+//     thumbnail={artworkUrl100}
+//     price={trackPrice}
+//     addToBasket={addToBasket}
+//     removeFromBasket={removeFromBasket} />
+
+//here i am copying tobias code. it still doesnt work
+
+// function Product({product}) {
+//     const { name } = product.trackName;
+//     const { id } = product.trackId;
+//     const { kind } = product.kind;
+//     return (
+//         <div>
+//             <h2>{name}</h2>
+//         </div>
+//     );
+// }
+
+// export default Product;
+
+// The below code creates props. its been created using the slides video but doesnt work
+
+function Product({ trackName, artistName, trackPrice, kind, trackId,  }) {
     return (
-        <>
-        <div className="product-container">
-        
-           </div>
-        </>
+        <div style={{
+            backgroundColor: "lilac",
+            padding: "10px",
+            marginBottom: "4px"
+        }}
+        >
+            <h2>{trackName}</h2>
+            <h2>{artistName}</h2>
+            <h3>£{trackPrice}</h3>
+
+        </div>
     );
-};
-    
+}
 
-// slides
-// const { artistName,
-//         trackName,
-//         trackPrice,
-//         currency,
-//         artworkUrl60
-//  } = props.track;
+export default Product;
 
-//  <div className="track">
-//     <img src={artworkUrl60} alt={title}/>
-//     <div>
-//         <h2 artistName={artistName}>{artistName}</h2>
-//         <h2 trackName={trackName}>{trackName}</h2>
-//     </div>
-//  </div>
+Product.propTypes = {
+    trackName: PropTypes.string.isRequired,
+    artistName: PropTypes.string.isRequired,
+    trackPrice: PropTypes.number.isRequired
 
-
-// * <div className="track">
-//     <img src={artworkUrl100} alt={trackName}/>
-// <div>
-//     <h2 trackName={trackName}>{trackName}</h2>
-//     <h2 artistName={artistName}>{artistName}</h2>
-//     <h2 trackPrice={trackPrice}>{trackPrice}</h2>
-
-// </div>
-// </div>
-// ); */}
-// // export function Product(props) {
-//     // const books = data;
-//     // const { trackName, artistName, trackPrice, artworkUrl100 } = props
-
-// // export const Track = (props) => {
-// //     return (
-// //             <div>
-// //             <h1>{props.trackName}</h1>
-// //             <h2>{props.artistName}</h2>
-// //             <h3>{props.trackPrice}</h3>
-// //             <img src={props.artworkUrl100} alt={props.trackName}/>
-       
-// //         </div>
-// //     );
-        
-// // }
-
-// // export const Productlist = (props) => 
-// // {
-// //     return (
-// //         <main>
-// //             {props.products.map(
-// //                 (item) => 
-// //                 <Product trackName={item.trackName} artistName={item.artistName} trackPrice={item.trackPrice} artworkUrl100={item.artworkUrl100}/>
-// //                 )}
-// //         </main>
-// //         )
-// //     }
+}
+ 
+    // const { kind,
+    //     trackId,
+    //     trackName,
+    //     artworkUrl100,
+    //     trackPrice
+    //     addToBasket
+    //     removeFromBasket } = props.music;
+   
+    // <div className="music">
+    // kind={kind}
+    // id={trackId}
+    // <h2 name={trackName}>{trackName}</h2>
+    // <img src thumbnail={artworkUrl100}/>
+    // price={trackPrice}
+    // addToBasket={addToBasket}
+    // removeFromBasket={removeFromBasket} />
+    // </div>
+// }
