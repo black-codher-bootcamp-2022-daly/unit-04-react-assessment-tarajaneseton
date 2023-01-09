@@ -18,7 +18,7 @@ import React from "react";
 const ProductList = ( props ) => {
 const {products}=props
 console.log("products",products);
-
+//the below maps through the data
     return (
         <div>
             <h1 className="title">Suggested For You</h1>{" "}

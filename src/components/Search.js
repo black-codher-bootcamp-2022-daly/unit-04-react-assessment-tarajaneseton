@@ -1,28 +1,45 @@
 import React from "react";
 
-export function Search(props) {
-  const { search, term, setTerm } = props;
-
-  function handleChange(changeEvent) {
-    console.log("Someone Typed event =>", changeEvent);
-     props.search(props.term);
-    setTerm(changeEvent.target.value);
-  }
-
-  function onSubmit(event) {
-    event.preventDefault();
-    handleSubmit(term);
-  }
+// new search component. does work. video slides 00:58
+export const Search = (props) => {
+  const [keyword, setKeyword] = React.useState("");
   return (
-    <form className="Search" id="searchAPI">
-      <p style={{ color: "pink" }}>
-        <em>{term && "Term Typed: " + term}</em>
-      </p>
-      <input id="term" type="text" value={props.term} onChange={handleChange} />
-      <input className="submitButton" type="submit" onClick={onSubmit} />
+    <form id="searchAPI">
+      <input
+        type="text"
+        value="{props.keyword}"
+        onChange={(e) => props.setKeyword(e.target.value)}
+      />
+      <input type="submit" />
     </form>
   );
-}
+};
+
+export default Search;
+//   const { search, term, setTerm } = props;
+
+//   function handleChange(changeEvent) {
+//     console.log("Someone Typed event =>", changeEvent);
+//      props.search(props.term);
+//     setTerm(changeEvent.target.value);
+//   }
+
+//   //    handleSubmit(term); 3rd line
+
+//   function onSubmit(event) {
+//     event.preventDefault();
+
+//   }
+//   return (
+//     <form className="Search" id="searchAPI">
+//       <p style={{ color: "pink" }}>
+//         <em>{term && "Term Typed: " + term}</em>
+//       </p>
+//       <input id="term" type="text" value={props.term} onChange={handleChange} />
+//       <input className="submitButton" type="submit" onClick={onSubmit} />
+//     </form>
+//   );
+// }
 
 // //Search.js will return a form with the following
 // identifier id="searchAPI" e.g., <form id="searchAPI">.
