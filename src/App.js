@@ -12,13 +12,22 @@ export function App() {
   const [products] = useState(data);
   const [term, setTerm] = useState("");
 
+//   return {
+// <Route exact path="/" element={
+//   <Header/>
+//   <h2>Welcome to the Bookcase App</h2>
+//   <ProductList products={products}>
+//   <Search />
+//     <ProductList/>
+//   </Route>
 
-
-  return <ProductList products={products}>
-    <Search />
-    {/* <Search keyword={} setKeyword={} /> */}
-     </ProductList>;
 }
+
+ 
+    
+    {/* <Search keyword={} setKeyword={} /> */}
+    
+
 //     setProducts(results.items); after   if (!results.error) {
 
 

@@ -1,21 +1,28 @@
 import React from "react";
 
-// new search component. does work. video slides 00:58
+// 11.01.23 search component. search bar displays but it doesnt search for books.  video slides 00:58
 export const Search = (props) => {
-  const [keyword, setKeyword] = React.useState("");
+  // const [keyword, setKeyword] = React.useState("");
+   // value="{keyword}"
+        
+
+
+const [value, setValue] = React.useState(" ")
   return (
     <form id="searchAPI">
-      <input
-        type="text"
-        value="{props.keyword}"
-        onChange={(e) => props.setKeyword(e.target.value)}
-      />
-      <input type="submit" />
+    <div>
+      <input type="text" value={value} onChange={(e) => setValue(e.target.value)}/>
+      <input type="submit"/>
+    </div>
     </form>
   );
 };
 
-export default Search;
+
+
+
+
+
 //   const { search, term, setTerm } = props;
 
 //   function handleChange(changeEvent) {

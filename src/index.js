@@ -69,7 +69,7 @@ root.render(
     <Router>
       <App />
       <Product />
-      {/* <Search /> */}
+      <Search />
     </Router>
   </React.StrictMode>
 );
