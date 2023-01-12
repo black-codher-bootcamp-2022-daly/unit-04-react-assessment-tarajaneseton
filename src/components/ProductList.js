@@ -1,28 +1,15 @@
-//Rename the example file \src\models\example-data.json to data.json and pass items from here into your <ProductList/> component.
-//When the <ProductList/> is empty a message should be displayed:
-
-// "No items found..." 
-// Expected props for the <ProductList/> component are listed below:
-
-// Props
-// Example expected props. Please note this is not an exhaustive list, but the minimum props required for assessment.
-
-// <ProductList
-//     items={items}
-//     addToBasket={addToBasket} />
-
 import Product from './Product';
 import React from "react";
-import { Route } from "react-router-dom";
+// import { Route } from "react-router-dom";
 
 
 const ProductList = ( props ) => {
 const {products}=props
 console.log("products",products);
-//the below maps through the data
+//the below maps through the data and should return 'no items found' but that doesnt work
     return (
         <div>
-            <h1 className="title">Suggested For You</h1>{" "}
+            {/* <h1 className="title">Suggested For You</h1>{" "} */}
             {(!products || products.length === 0) ? (
                 <div className="empty">No items found...</div>
             ) : (

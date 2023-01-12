@@ -10,17 +10,17 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 //     )
 // }
 
-// export default function About(props) {
-//     return (
-//         <div className="header">
-//             <h1>About</h1>
-//             <div className="breadcrumb">
-//                 <Link to="/"> Home </Link>
-//             </div>
-//         <div className="page">
-//             <h2>Welcome to my Media Store Application</h2>
-//             <p>This React application allows a user to add products to their basket. It connects to the iTunes API and the user is able to search the entire iTunes library using the search bar on the homepage</p>
-//             </div>       
-//              </div>
-//     )
-// }
+export default function About(props) {
+    return (
+        // <div className="header">
+        //     <h1>About</h1>
+        //     <div className="breadcrumb">
+        //         <Link to="/"> Home </Link>
+        //     </div>
+        <div className="aboutPage">
+            <h2>Welcome to my Media Store Application</h2>
+            <p>This React application allows a user to add products to their basket. It connects to the iTunes API and the user is able to search the entire iTunes library using the search bar on the homepage</p>
+            </div>       
+            //  </div>
+    )
+}
