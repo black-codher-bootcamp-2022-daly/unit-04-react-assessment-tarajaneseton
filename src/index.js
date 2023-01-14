@@ -11,37 +11,9 @@ import { createRoot } from "react-dom/client";
 // import Header from "./components/Header.js";
 
 
-// export default function Pages() {
-
-//   function Home() {
-//     return;
-//     <div>
-//       <h2>Home</h2>
-//       <section>This is Home</section>
-//     </div>;
-//   }
-  
-//   function About() {
-//     return;
-//     <div>
-//       <h2>About</h2>
-//       <section>Hello!</section>
-//     </div>;
-//   }
-  
-//   function Basket() {
-//     return;
-//     <div>
-//       <h2>Basket</h2>
-//       <section>Your basket</section>
-//     </div>;
-//   }
   
 
 // }
-
-// this is a function which creates different pages using the title component. You can create the same thing by creating multiple fucntions, one for each page.
-// 080122 the Basket and About functions are causing issues as they are duplicates. need to look for help on routes
 
 // adding an event listener,listening for buttons that are clicked, click. when you click, the function/ event listener will trigger the callback which expects 2 (minimum) parameters, el, bbutton element and e, the mouse event that triggers the element. target lets you know where that event came from
 // const buttons = list.querySelectorAll('button')
@@ -68,12 +40,12 @@ root.render(
     {/* <Router> */}
       <App />
       {/* <Header /> */}
-      <Product />
+      {/* <Product />
       <ProductList />
       {/* <About />
       <Basket /> */}
-      <Search />
+      {/* <Search /> */}
       {/* <Search keyword={keyword} setKeyword={setKeyword}/> */}
-    {/* </Router> */}
+    {/* </Router> */} */}
   </React.StrictMode>
 );

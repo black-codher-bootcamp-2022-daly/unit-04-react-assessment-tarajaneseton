@@ -5,47 +5,57 @@ import ProductList from "./components/ProductList";
 import { Search } from "./components/Search";
 import About from "./pages/About";
 import Basket from "./components/Basket";
+import Header from "./components/Header";
 // tobia's way: import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
 
+function addBook(id) {
+  console.log(`The product ${id} was clicked`);
+}
 // const [products, setProducts]
 export function App() {
   const [products] = useState(data);
-  const [keyword, setKeyword] = useState(" ");
+  const [term, setTerm, search] = useState(" ");
 
   return (
     <div className="wrapper">
       {/* <Header /> */}
       <h1>Tara's Media Store App</h1>
       <BrowserRouter>
-      <ul>
-        <li><Link to="/"> Home </Link></li>
-        <li><Link to="/about"> About </Link></li>
-        <li><Link to="/basket"> Basket </Link></li>
-      </ul>
-          {/* <Route path="/" element={<Home />} /> */}
-          <Routes>
-            <Route path="about" element={<About />} />
-          <Route path="basket" element={<Basket />} /> 
-          </Routes>
+        <ul>
+          <li>
+            <Link to="/"> Home </Link>
+          </li>
+          <li>
+            <Link to="/about"> About </Link>
+          </li>
+          <li>
+            <Link to="/basket"> Basket </Link>
+          </li>
+        </ul>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="basket" element={<Basket />} />
+        </Routes>
       </BrowserRouter>
     </div>
   );
 
+  function Home() {
+    return (
+      <>
+        <Header />
+        <Search term={term} setTerm={setTerm} search={search} />
+        {/* <ProductList /> */}
+        <ProductList products={products} productCount={products.length} />
+        {/* <ProductList products={products} addToBasket={addToBasket} removeFromBasket={removeFromBasket} productCount={products.length} /> */}
+      </>
+    );
+  }
+}
+
 // might need to change Basket to Basketlist
-
-  // <Route exact path="/" element={
-  //   <Header/>
-  //   <h2>Welcome to the Bookcase App</h2>
-  //   <ProductList products={products}>
-  //   <Search />
-  //     <ProductList/>
-  //   </Route>
-}
-
-{
-  /* <Search keyword={} setKeyword={} /> */
-}
 
 //     setProducts(results.items); after   if (!results.error) {
 

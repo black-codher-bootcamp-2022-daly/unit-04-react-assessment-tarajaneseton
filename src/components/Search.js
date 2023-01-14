@@ -2,20 +2,27 @@ import React from "react";
 // import PropTypes from "prop-types";
 
 export const Search = (props) => {
-const { keyword, setKeyword } = props;      
-// const [value, setValue] = React.useState(" ")
+  const { search, term, setTerm } = props;
+  // const [value, setValue] = React.useState(" ")
 
-function handleChange(changeEvent) {
-  console.log("tara event =>", changeEvent);
-  setKeyword(changeEvent.target.value);
-}
+  function handleChange(changeEvent) {
+    console.log("tara event =>", changeEvent);
+    // props.search(props.term);
+    setTerm(changeEvent.target.value);
+  }
 
-return (
-  <form id="searchAPI">
-    <input type="text" value={props.keyword} onChange={handleChange} />
-    <input type="submit" />
-  </form>
-);
+  return (
+    <form id="searchAPI">
+   <p style={{color:"violet"}}><em>{term && 'Keywords Typed: ' + term}</em></p> 
+      <input
+        type="text"
+        value={props.term}
+        onChange={handleChange}
+        id="term"
+      />
+      <input type="submit" />
+    </form>
+  );
 };
 
 // 11.01.23 search component. search bar displays using value, set valuee instead of props.keyword but it doesnt search for books. updated code sets the value from props video slides 00:58
@@ -32,13 +39,10 @@ return (
 //   );
 // };
 
-
 // Search.proptypes = {
 //   keyword: PropTypes.string,
 //   setKeyword: PropTypes.func
 // }
-
-
 
 //   const { search, term, setTerm } = props;
 

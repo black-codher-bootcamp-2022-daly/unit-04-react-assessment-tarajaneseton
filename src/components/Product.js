@@ -17,7 +17,7 @@ const Product = (props) => {
   return (
     <div
       style={{
-        backgroundColor: "purple",
+        backgroundColor: "SeaShell",
         padding: "10px",
         marginBottom: "4px",
       }}
@@ -37,23 +37,4 @@ export default Product;
 //     artistName: PropTypes.string.isRequired,
 //     trackPrice: PropTypes.number.isRequired
 
-// }
-
-// const { kind,
-//     trackId,
-//     trackName,
-//     artworkUrl100,
-//     trackPrice
-//     addToBasket
-//     removeFromBasket } = props.music;
-
-// <div className="music">
-// kind={kind}
-// id={trackId}
-// <h2 name={trackName}>{trackName}</h2>
-// <img src thumbnail={artworkUrl100}/>
-// price={trackPrice}
-// addToBasket={addToBasket}
-// removeFromBasket={removeFromBasket} />
-// </div>
 // }
