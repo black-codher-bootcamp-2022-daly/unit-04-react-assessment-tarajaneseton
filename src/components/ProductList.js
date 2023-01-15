@@ -10,7 +10,6 @@ console.log("products",products);
 // 14.01 swapped item={product} for product={product} 
     return (
         <div>
-            {/* <h1 className="title">Suggested For You</h1>{" "} */}
             {(!products || products.length === 0) ? (
                 <div className="empty">No products found...</div>
             ) : (
@@ -25,8 +24,8 @@ console.log("products",products);
           thumbnail={product.artworkUrl100}
           artistName={product.artistName} 
           price={product.trackPrice}
-          addToBasket={product.addToBasket}
-          removeFromBasket={product.removeFromBasket}
+          addToBasket={props.addToBasket}
+          removeFromBasket={props.removeFromBasket}
           />
           </div>
           ))

@@ -1,16 +1,9 @@
-import React, { useReducer, useState } from "react";
-import ProductList from "./ProductList";
+import React from "react";
 import Product from "./Product";
-import BasketCount from "./BasketCount";
-import BasketTotal from "./BasketTotal";
-import App from "../App";
-import totalReducer from "../App";
-import basketReducer from "../App";
+// import BasketCount from "./BasketCount";
+// import BasketTotal from "./BasketTotal";
 
-const currencyOptions = {
-    minimumFractionDigits: 2,
-    maximumFracionDigits: 2,
-  }
+
 
 
 

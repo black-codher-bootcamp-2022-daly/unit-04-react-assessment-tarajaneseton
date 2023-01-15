@@ -1,5 +1,5 @@
 import "./styles/App.css";
-import React, { useState, useReducer } from "react";
+import React, { useState, useReducer, useEffect } from "react";
 import data from "./models/data.json";
 import ProductList from "./components/ProductList";
 import { Search } from "./components/Search";
@@ -30,40 +30,39 @@ import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
   //   return [...state, product, props]
   // }
 
-  function basketReducer(state,action) {
-    switch(action.type) {
-      case 'add':
-        return [...state, action.name];
-        case 'remove':
-          const updated = [...state, action.name];
-          case 'remove':
-            const productIndex = state.findIndex(item => item.name === action.product.name);
-            if(productIndex < 0) {
-              return state;
-            }
-            const update = [...state];
-            update.splice(productIndex, 1)
-            return update;
-            default:
-            return state;
-    }
-  }
+//   function basketReducer(state,action) {
+//     switch(action.type) {
+//       case 'add':
+//         return [...state, action.name];
+//         case 'remove':
+//           const updated = [...state, action.name];
+//           case 'remove':
+//             const productIndex = state.findIndex(item => item.name === action.product.name);
+//             if(productIndex < 0) {
+//               return state;
+//             }
+//             const update = [...state];
+//             update.splice(productIndex, 1)
+//             return update;
+//             default:
+//             return state;
+//     }
+//   }
 
-function totalReducer(state, props, action) {
-  if(action.type === 'add') {
-    return state + action.props.price;
-  }
-  return state - action.props.price;
-}
+// function totalReducer(state, props, action) {
+//   if(action.type === 'add') {
+//     return state + action.props.price;
+//   }
+//   return state - action.props.price;
+// }
 
 export function App() {
-  const [products, setProducts] = useState(data);
-  // const [term, setTerm, search] = useState(" ");
+  const [products, setProducts] = useState(data.slice(0,10));
   const [term, setTerm] = useState(" ");
-  // const [basket, setBasket] = useState([]);
-  const [basket, setBasket] = useReducer(basketReducer, []);
-  // const [total, setTotal] = useState(0);
-  const [total, setTotal] = useReducer(totalReducer, 0);
+  const [basket, setBasket] = useState([]);
+  const [total, setTotal] = useState(0);
+  const [count, setCount] = useState(0);
+  const [loadMoreVisible, setLoadMoreVisible] = useState(true);
 
   //Your app should display the results of the search in an component called <ProductList/> with the identifier id="results" e.g. <div id="results"/>.
 
@@ -84,44 +83,78 @@ export function App() {
     }
   }
 
-  function addToBasket(product, props) {
-    setBasket({ product, type: 'add'});
-    // const { name, price } = product;
-    // setBasket({ name, type: 'add' })
-    // setBasket(name);
-    // setBasket(current => [...current, product.name]);
-    // setTotal(current => current + product.price);
-    // setTotal({price, type: 'add'});
-  
-    // function getTotal(total) {
-    //   return total.toLocaleString(undefined, currencyOptions)
-    // }
-          }
+function getData(currentCount) {
+  if (currentCount === data.length - 10) setLoadMoreVisible(false);
+  return setProducts((currentProducts) => [
+    ...currentProducts,
+    ...data.slice(currentCount, currentCount + 10),
+  ]);
+}
 
-   function removeFromBasket(product, props) {
-    setBasket({ product, type: 'remove'});
-    // const { name, price } = product;
-    // setBasket({ name, type: 'remove' });
-    // setTotal({ price, type: 'remove' })  
+useEffect(() => {
+
+}, [term]);
+
+  function addToBasket(trackId) {
+    products.forEach((product) => {
+      if (product.trackId === trackId) {
+        product.inBasket = true;
+        setBasket((prev) => [...prev, product]);
+
+        if (product.trackPrice) {
+          setTotal(parseFloat(total + product.trackPrice));
+        } else {
+          setTotal(total + 0);
+        }
+        }
+        setCount(count + 1);
+      });
+  }
+
+
+  function removeFromBasket(trackId) {
+    const removeFromCart = [];
+    basket.forEach((products) => {
+      if (products.trackId !== trackId) {
+        removeFromCart.push(products);
+      } else {
+        products.inBasket = !products.inBasket;
+        if (products.trackPrice) {
+          setTotal(parseFloat(total - products.trackPrice));
+        }
+        return products;
+      }
+    });
+
+    setBasket(removeFromCart);
+    setCount(count - 1);
+  }
+
+   function Basketpage() {
+    return (
+      <>
+        <BasketCount />
+        <Basket 
+          basket={basket}
+          addToBasket={addToBasket}
+          removeFromBasket={removeFromBasket}
+          BasketTotal={total}
+          basketCount={count}
+/>          
+      </>
+    );
    }
 
-   
-
-  // function addToBasket(product) {
-  //   console.log(`'${product}' was clicked`);
-  //   const newBasket = basket;
-  //   newBasket.push(product);
-  //   setBasket(newBasket);
-  //   console.log({ newBasket, basket });
-  // }
 
   function Home() {
     return (
+      // AAAAAAAAAAAAAAAA <Container> instead of <>
       <>
         <Header />
         <Search term={term} setTerm={setTerm} handleSubmit={search} />
-        <ProductList products={products} />
-        {/* <ProductList products={products} addToBasket={addToBasket} removeFromBasket={removeFromBasket} productCount={products.length} /> */}
+        {/* <ProductList products={products} /> productCount could be itemCount={data.length} */}
+        <ProductList products={products} addToBasket={addToBasket} removeFromBasket={removeFromBasket} productCount={data.length} />
+        {/* AAAAAAAAAAAAAA {loadMoreVisble && ( could be added <)} */}
       </>
     );
   }
@@ -154,16 +187,6 @@ export function App() {
 
   
 }
-
-// might need to change Basket to Basketlist
-
-//     setProducts(results.items); after   if (!results.error) {
-
-// setProducts (results.results.filter(
-//   (result) =>
-//     result.trackName &&
-//     basket.findIndex((product) => result.id === product.trackId) === -1
-// ));
 
 export default App;
 

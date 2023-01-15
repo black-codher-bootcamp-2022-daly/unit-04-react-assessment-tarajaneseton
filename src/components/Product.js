@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { ProductList }from "./ProductList";
-import App from "../App";
+
 
 // import "./styles/App.css"
 // import PropTypes from "prop-types";
@@ -18,9 +17,6 @@ const Product = (props, handleClick) => {
     removeFromBasket,
   } = props;
 
-  const [basket, setBasket] = useState([]);
-  const [total, setTotal] = useState(0);
-
   return (
     <div
       style={{
@@ -37,6 +33,8 @@ const Product = (props, handleClick) => {
       {/* <button onClick={() => props.handleClick(props.product)}> { props.isInTheBasket ? "Remove" : "Add +" }</button> */}
       <button onClick={() => addToBasket(props.product)}>Add</button>
       <button onClick={() => removeFromBasket(props.product)}>Remove</button>
+           {/* <button onClick={() => props.addToBasket(props.product)}>Add</button>
+      <button onClick={() => props.removeFromBasket(props.product)}>Remove</button> */}
       {/* <button onClick={addToBasket}>Add</button>
       <button onClick={() => {
         setBasket([]);
