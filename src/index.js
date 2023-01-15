@@ -4,7 +4,7 @@ import App from "./App.js";
 import Product from "./components/Product.js";
 import ProductList from "./components/ProductList.js";
 import About from "./pages/About";
-import Basket from "./components/Basket";
+// import Basket from "./components/Basket";
 import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
 import { Search } from "./components/Search"
 import { createRoot } from "react-dom/client";
@@ -37,15 +37,6 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 //passing each element to root rende
 root.render(
   <React.StrictMode>
-    {/* <Router> */}
       <App />
-      {/* <Header /> */}
-      {/* <Product />
-      <ProductList />
-      {/* <About />
-      <Basket /> */}
-      {/* <Search /> */}
-      {/* <Search keyword={keyword} setKeyword={setKeyword}/> */}
-    {/* </Router> */} */}
   </React.StrictMode>
 );
