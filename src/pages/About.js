@@ -1,25 +1,16 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-
-// export default function About() {
-//     return (
-//         <>
-//     <h1>About</h1>
-//     <p>Welcome to my Media App where you can search for your favourite music, TV show or film and add them to your basket. Created by Tara Jane Seton.</p>
-//     </>
-//     )
-// }
 
 export default function About(props) {
     return (
-        // <div className="header">
-        //     <h1>About</h1>
-        //     <div className="breadcrumb">
-        //         <Link to="/"> Home </Link>
-        //     </div>
         <div className="aboutPage">
-            <h2>Welcome to my Media Store Application</h2>
-            <p>This React application allows a user to add products to their basket. It connects to the iTunes API and the user is able to search the entire iTunes library using the search bar on the homepage</p>
+            <h2>Welcome to Tara's Media Store</h2>
+            <p>I created Media Store using the iTunes API to enable users to discover their favourite music, films and TV shows and add them to their Basket.
+        
+                How to use Media Store:
+                1. To search, simply enter the artist name or keyword using the search bar on the homepage.
+                2. Add the song or film to your basket by clicking 'Add'. If you change your mind you can remove it by clicking 'Remove'. </p>
+
+            
             </div>       
             //  </div>
     )

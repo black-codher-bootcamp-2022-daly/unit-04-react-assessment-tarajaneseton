@@ -4,57 +4,10 @@ import data from "./models/data.json";
 import ProductList from "./components/ProductList";
 import { Search } from "./components/Search";
 import About from "./pages/About";
-import Product from "./components/Product";
-
 import Basket from "./components/Basket";
-
 import Header from "./components/Header";
-import BasketTotal from "./components/BasketTotal";
 import BasketCount from "./components/BasketCount";
 import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
-
-// useEffect(() => {
-//   console.log("An action =>", term);
-// }, [term]);
-
-// const currencyOptions = {
-//   minimumFractionDigits: 2,
-//   maximumFracionDigits: 2,
-// }
-
-// function addBook(id) {
-//   console.log(`The product ${id} was clicked`);
-// }
-  //***moved basketreducer and total reducer to basket, originally in app
-  // function basketReducer(state, product, props)  {
-  //   return [...state, product, props]
-  // }
-
-//   function basketReducer(state,action) {
-//     switch(action.type) {
-//       case 'add':
-//         return [...state, action.name];
-//         case 'remove':
-//           const updated = [...state, action.name];
-//           case 'remove':
-//             const productIndex = state.findIndex(item => item.name === action.product.name);
-//             if(productIndex < 0) {
-//               return state;
-//             }
-//             const update = [...state];
-//             update.splice(productIndex, 1)
-//             return update;
-//             default:
-//             return state;
-//     }
-//   }
-
-// function totalReducer(state, props, action) {
-//   if(action.type === 'add') {
-//     return state + action.props.price;
-//   }
-//   return state - action.props.price;
-// }
 
 export function App() {
   const [products, setProducts] = useState(data.slice(0,10));
@@ -66,6 +19,9 @@ export function App() {
 
   //Your app should display the results of the search in an component called <ProductList/> with the identifier id="results" e.g. <div id="results"/>.
 
+  useEffect(() => {
+
+  }, [term]);
 
   async function search(value) {
     console.log("find books that got clicked", value);
@@ -91,9 +47,7 @@ export function App() {
 //   ]);
 // }
 
-useEffect(() => {
 
-}, [term]);
 
   function addToBasket(trackId) {
     products.forEach((product) => {
@@ -130,7 +84,7 @@ useEffect(() => {
     setCount(count - 1);
   }
 
-   function BasketList() {
+   function Basketpage() {
     return (
       <>
         <BasketCount />

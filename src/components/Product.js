@@ -1,8 +1,4 @@
-import React, { useState } from "react";
-
-
-// import "./styles/App.css"
-// import PropTypes from "prop-types";
+import React from "react";
 
 
 const Product = (props) => {
@@ -41,33 +37,12 @@ const Product = (props) => {
         ) : (
           <button id="add-button" onClick={() => props.addToBasket(trackId)}>
             {" "}
-            Add to basket
+            Add
           </button>
         )}
       </div>
-      {/* <Product onClick={() => props.addToBasket(props.product.trackId)}/> */}
-      {/* <button onClick={() => props.handleClick(props.product)}> { props.isInTheBasket ? "Remove" : "Add +" }</button> */}
-      {/* <button onClick={() => addToBasket(props.product)}>Add</button>
-      <button onClick={() => removeFromBasket(props.product)}>Remove</button> */}
-           {/* <button onClick={() => props.addToBasket(props.product)}>Add</button>
-      <button onClick={() => props.removeFromBasket(props.product)}>Remove</button> */}
-      {/* <button onClick={addToBasket}>Add</button>
-      <button onClick={() => {
-        setBasket([]);
-        setTotal(0);
-      }}
-      >
-        Remove
-        </button> */}
     </div>
   );
 };
 
 export default Product;
-
-// Product.propTypes = {
-//     trackName: PropTypes.string.isRequired,
-//     artistName: PropTypes.string.isRequired,
-//     trackPrice: PropTypes.number.isRequired
-
-// }

@@ -1,13 +1,11 @@
 import Product from './Product';
 import React from "react";
-// import { Route } from "react-router-dom";
 
 
 export const ProductList = ( props ) => {
 const {products}=props
 console.log("products",products);
-//the below maps through the data and should return 'no items found' but that doesnt work
-// 14.01 swapped item={product} for product={product} 
+
     return (
         <div>
             {(!products || products.length === 0) ? (
