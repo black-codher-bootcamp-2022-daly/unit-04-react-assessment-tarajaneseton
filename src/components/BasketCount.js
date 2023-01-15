@@ -1,17 +1,15 @@
-
-// import React, { useReducer, useState } from "react";
-
+import React from "react";
 
 
+// product{props... could be item{props}}
+
+function BasketCount(props) {
+    return (
+<div className="basket-count">
+    {props.basketCount} product{props.basketCount !== 1 ? "s" : ""}
+</div>
+    );
+}
 
 
-//     return (
-// <div className="basket-count">
-//     {props.basketCount} item{props.basketCount!==1?"s":""}
-// </div>
-//     );
-// }
-
-
-
-// export default BasketCount;
+export default BasketCount;

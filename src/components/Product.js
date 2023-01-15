@@ -5,7 +5,7 @@ import React, { useState } from "react";
 // import PropTypes from "prop-types";
 
 
-const Product = (props, handleClick) => {
+const Product = (props) => {
   const {
     trackName,
     artistName,
@@ -29,10 +29,26 @@ const Product = (props, handleClick) => {
       <h2>{trackName}</h2>
       <h2>{artistName}</h2>
       <h3>£{trackPrice}</h3>
+      <div className="buttons">
+        {props.inBasket ? (
+          <button
+            id="add-button"
+            onClick={() => props.removeFromBasket(trackId)}
+          >
+            {" "}
+            Remove
+          </button>
+        ) : (
+          <button id="add-button" onClick={() => props.addToBasket(trackId)}>
+            {" "}
+            Add to basket
+          </button>
+        )}
+      </div>
       {/* <Product onClick={() => props.addToBasket(props.product.trackId)}/> */}
       {/* <button onClick={() => props.handleClick(props.product)}> { props.isInTheBasket ? "Remove" : "Add +" }</button> */}
-      <button onClick={() => addToBasket(props.product)}>Add</button>
-      <button onClick={() => removeFromBasket(props.product)}>Remove</button>
+      {/* <button onClick={() => addToBasket(props.product)}>Add</button>
+      <button onClick={() => removeFromBasket(props.product)}>Remove</button> */}
            {/* <button onClick={() => props.addToBasket(props.product)}>Add</button>
       <button onClick={() => props.removeFromBasket(props.product)}>Remove</button> */}
       {/* <button onClick={addToBasket}>Add</button>

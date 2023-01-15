@@ -1,13 +1,11 @@
-import React, { useReducer } from "react";
+import React from "react";
 
 
 
 const BasketTotal = (props) => {
 
-    return (
-    <div>{((props.basketTotal))}</div>
-    )
-}
+    return <div>{props.basketTotal}</div>
+};
 
 
 

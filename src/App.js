@@ -1,5 +1,5 @@
 import "./styles/App.css";
-import React, { useState, useReducer, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import data from "./models/data.json";
 import ProductList from "./components/ProductList";
 import { Search } from "./components/Search";
@@ -10,7 +10,7 @@ import Basket from "./components/Basket";
 
 import Header from "./components/Header";
 import BasketTotal from "./components/BasketTotal";
-// import BasketCount from "./components/BasketCount";
+import BasketCount from "./components/BasketCount";
 import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
 
 // useEffect(() => {
@@ -62,7 +62,7 @@ export function App() {
   const [basket, setBasket] = useState([]);
   const [total, setTotal] = useState(0);
   const [count, setCount] = useState(0);
-  const [loadMoreVisible, setLoadMoreVisible] = useState(true);
+  // const [loadMoreVisible, setLoadMoreVisible] = useState(true);
 
   //Your app should display the results of the search in an component called <ProductList/> with the identifier id="results" e.g. <div id="results"/>.
 
@@ -83,13 +83,13 @@ export function App() {
     }
   }
 
-function getData(currentCount) {
-  if (currentCount === data.length - 10) setLoadMoreVisible(false);
-  return setProducts((currentProducts) => [
-    ...currentProducts,
-    ...data.slice(currentCount, currentCount + 10),
-  ]);
-}
+// function getData(currentCount) {
+//   if (currentCount === data.length - 10) setLoadMoreVisible(false);
+//   return setProducts((currentProducts) => [
+//     ...currentProducts,
+//     ...data.slice(currentCount, currentCount + 10),
+//   ]);
+// }
 
 useEffect(() => {
 
@@ -130,7 +130,7 @@ useEffect(() => {
     setCount(count - 1);
   }
 
-   function Basketpage() {
+   function BasketList() {
     return (
       <>
         <BasketCount />
@@ -138,7 +138,7 @@ useEffect(() => {
           basket={basket}
           addToBasket={addToBasket}
           removeFromBasket={removeFromBasket}
-          BasketTotal={total}
+          basketTotal={total}
           basketCount={count}
 />          
       </>
