@@ -10,17 +10,26 @@
   font-size: 20px;
 }
 
-.App-header {
-  min-height: 100vh;
+.Header {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-direction: row;  
+  font-size: 16px;
+  padding: 10px 10px;
+  width: 91%;  
+  gap:  10px 10px;
+  justify-items: space-around;
+  position: relative; left: 3.5px;
 }
 
 .App-link {
   color: #ca61fb;
+}
+
+img{
+  max-width: 100px;
+  flex-basis: 40%;
+
+
 }
 
 .product-container {
@@ -29,15 +38,4 @@
   margin-top: 2px;
 }
 
-#navigation {
-  margin: 0;
-    display: flex;
-   flex-direction: row;
-   gap:  10px 20px;
-  justify-content: center;
-  
-   list-style-type: none;
-  background-color: white;
-   
-  
-  }
+

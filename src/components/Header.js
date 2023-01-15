@@ -17,8 +17,7 @@ export default function Header(props) {
       </div>
       <div>
         <Link className="Link" to="/basket" id="basketlink">
-        {/* <h4>Basket:</h4> */}
-          <h4>Basket:{props.itemCount}</h4>
+          <h4>Basket:{props.productCount}</h4>
         </Link>
       </div>
       </div>

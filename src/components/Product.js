@@ -26,20 +26,28 @@ const Product = (props) => {
       <h2>{artistName}</h2>
       <h3>£{trackPrice}</h3>
       <div className="buttons">
-        {props.inBasket ? (
+      <div>
+        {props.inBasket !== true ? (
+          <button onClick={() => addToBasket(trackId)}>Add to basket</button>
+        ) : (
+          <button onClick={() => removeFromBasket(trackId)}>
+            remove from basket
+          </button>
+        )}
+      </div>
+        {/* {props.inBasket ? (
           <button
-            id="add-button"
-            onClick={() => props.removeFromBasket(trackId)}
+            onClick={() => removeFromBasket(trackId)}
           >
             {" "}
             Remove
           </button>
         ) : (
-          <button id="add-button" onClick={() => props.addToBasket(trackId)}>
+          <button onClick={() => addToBasket(trackId)}>
             {" "}
             Add
-          </button>
-        )}
+          </button> */}
+        {/* )} */}
       </div>
     </div>
   );
