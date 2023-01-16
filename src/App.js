@@ -1,5 +1,5 @@
 import "./styles/App.css";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import data from "./models/data.json";
 import ProductList from "./components/ProductList";
 import Search from "./components/Search";
@@ -8,7 +8,7 @@ import Basket from "./components/Basket";
 import Header from "./components/Header";
 import BasketCount from "./components/BasketCount";
 import BasketTotal from "./components/BasketTotal";
-import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 export function App() {
   const [products, setProducts] = useState(data.slice(0, 10));
@@ -68,7 +68,8 @@ export function App() {
   function Basketpage() {
     return (
       <>
-        <BasketCount />
+        <BasketCount basketCount={count} />
+
         
           <Basket
             basket={basket}
