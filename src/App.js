@@ -68,8 +68,8 @@ export function App() {
   function Basketpage() {
     return (
       <>
-        <BasketCount basketCount={basket.length} />
-        {
+        <BasketCount />
+        
           <Basket
             basket={basket}
             addToBasket={addToBasket}
@@ -77,7 +77,7 @@ export function App() {
             basketTotal={total}
             basketCount={count}
           />
-        }
+        
         <div className="total-price">
           Total Price <BasketTotal basketTotal={total} />
         </div>
@@ -109,7 +109,7 @@ export function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="about" element={<About />} />
-          <Route path="basket" element={<Basket />} />
+          <Route path="basket" element={<Basketpage />} />
         </Routes>
       </BrowserRouter>
     </div>

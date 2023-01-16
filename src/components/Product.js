@@ -28,10 +28,10 @@ const Product = (props) => {
       <div className="buttons">
       <div>
         {props.inBasket !== true ? (
-          <button onClick={() => addToBasket(trackId)}>Add to basket</button>
+          <button onClick={() => addToBasket(trackId)}>Add</button>
         ) : (
           <button onClick={() => removeFromBasket(trackId)}>
-            remove from basket
+            Remove
           </button>
         )}
       </div>

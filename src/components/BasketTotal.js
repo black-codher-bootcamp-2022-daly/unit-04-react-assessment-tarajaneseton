@@ -2,7 +2,7 @@ import React from "react";
 
 
 
-function BasketTotal(props) {
+const BasketTotal = (props) => {
 
     return <div>{props.basketTotal}</div>
 };
