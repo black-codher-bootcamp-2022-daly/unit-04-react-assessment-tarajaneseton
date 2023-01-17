@@ -1,0 +1,41 @@
+.Header {
+  text-align: center;
+}
+
+.wrapper {
+  padding: 20px;
+}
+
+.basketwrapper {
+  font-size: 20px;
+}
+
+.Header {
+  display: flex;
+  flex-direction: row;  
+  font-size: 16px;
+  padding: 10px 10px;
+  width: 91%;  
+  gap:  10px 10px;
+  justify-items: space-around;
+  position: relative; left: 3.5px;
+}
+
+.App-link {
+  color: #ca61fb;
+}
+
+img{
+  max-width: 100px;
+  flex-basis: 40%;
+
+
+}
+
+.product-container {
+  padding-left: 2px;
+  padding-right: 2px;
+  margin-top: 2px;
+}
+
+
